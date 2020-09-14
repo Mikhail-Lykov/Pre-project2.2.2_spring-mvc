@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+<div th:switch="${locales}">
+    <h1 th:case="ru">МАШИНЫ</h1>
+    <h1 th:case="en">CARS</h1>
+</div>
+<div th:switch="${locales}">
+    <table border="1";>
+        <tr th:case="ru">
+            <th>Марка</th>
+            <th>Модель</th>
+            <th>Цвет</th>
+        </tr>
+
+        <tr th:case="en">
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Color</th>
+        </tr>
+
+        <tr th:each="msg : ${messages}">
+            <td th:text="${msg.name}"></td>
+            <td th:text="${msg.model}"></td>
+            <td th:text="${msg.color}"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/cars?locale=ru">RU</a>
+    <a href="/cars?locale=en">EN</a>
+</div>
+
+</body>
+</html>
